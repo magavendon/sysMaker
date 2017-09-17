@@ -3,7 +3,7 @@
 #   File:       creator.py
 #   Desc:       This is the main file for running the entire program.
 #----------------------------------------------------------------------------------------
-version = '1'
+version = '2'
 
 #----------------------------------------------------------------------------------------
 # ██ ███    ███ ██████   ██████  ██████  ████████ ███████
@@ -12,7 +12,11 @@ version = '1'
 # ██ ██  ██  ██ ██      ██    ██ ██   ██    ██         ██
 # ██ ██      ██ ██       ██████  ██   ██    ██    ███████
 #----------------------------------------------------------------------------------------
+# Default Python Imports
+from sys import exit as quit
+# Project File Imports
 from menu import useMenu
+from stars import getStars
 
 #----------------------------------------------------------------------------------------
 # ███████ ██    ██ ███    ██  ██████ ████████ ██  ██████  ███    ██ ███████
@@ -21,6 +25,32 @@ from menu import useMenu
 # ██      ██    ██ ██  ██ ██ ██         ██    ██ ██    ██ ██  ██ ██      ██
 # ██       ██████  ██   ████  ██████    ██    ██  ██████  ██   ████ ███████
 #----------------------------------------------------------------------------------------
+# Main Menu
+def mainMenu():
+    # Main menu options
+    choices = ['Random System',
+               'Optional System',
+               'Quit']
+    selection = useMenu(choices)
+
+    # Perform correct action
+    if selection == 1:
+        # Create a completely random system
+        createSystem()
+    elif selection == 2:
+        # Give the user options for creating a system
+        createSystem(False)
+    elif selection == 3:
+        # Quit the program
+        quit()
+
+# Create system
+def createSystem(random = True):
+    # Get the system's stars
+    stars = []
+    stars = getStars()
+    if len(stars) == 0:
+        mainMenu()
 
 #----------------------------------------------------------------------------------------
 # ██████  ███████  ██████  ██ ███    ██
@@ -40,8 +70,5 @@ title += '*******************************************************************'
 # Print title
 print(title)
 
-# Main menu options
-choices = ['Random System',
-           'Option System',
-           'Quit']
-selection = useMenu(choices)
+# Go to main menu
+mainMenu()
