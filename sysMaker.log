@@ -1,4 +1,26 @@
-2017-09-25 17:46:20.355407
+2017-09-25 17:52:13.039149
+Start Creator
+
+Begin Main Menu
+
+User chose Random
+
+In Create System
+Random = True
+
+In Get Stars
+Random = True
+
+In Amount Of Stars
+Random = True
+
+Passing on random
+
+User chose to Go Back
+
+End Creator
+
+2017-09-25 17:52:15.857602
 Start Creator
 
 Begin Main Menu
@@ -16,5 +38,106 @@ Random = False
 
 Doing choice
 
+User chose an amount of stars
+Leaving Amount of Stars
+
+User chose to Go Back
+
+End Creator
+
+2017-09-25 17:52:21.674241
+Start Creator
+
+Begin Main Menu
+
+User chose Optional
+
+In Create System
+Random = False
+
+In Get Stars
+Random = False
+
+In Amount Of Stars
+Random = False
+
+Doing choice
+
+User chose an amount of stars
+Leaving Amount of Stars
+
+User chose to Go Back
+
+End Creator
+
+2017-09-25 17:52:24.790919
+Start Creator
+
+Begin Main Menu
+
+User chose Optional
+
+In Create System
+Random = False
+
+In Get Stars
+Random = False
+
+In Amount Of Stars
+Random = False
+
+Doing choice
+
+User chose an amount of stars
+Leaving Amount of Stars
+
+User chose to Go Back
+
+End Creator
+
+2017-09-25 17:52:29.391599
+Start Creator
+
+Begin Main Menu
+
+User chose Optional
+
+In Create System
+Random = False
+
+In Get Stars
+Random = False
+
+In Amount Of Stars
+Random = False
+
+Doing choice
+
+User chose to Go Back
+
+User chose an amount of stars
+
+Begin Main Menu
+
+User chose Optional
+
+In Create System
+Random = False
+
+In Get Stars
+Random = False
+
+In Amount Of Stars
+Random = False
+
+Doing choice
+
 User chose to Quit
+
+2017-09-25 17:52:44.356483
+Start Creator
+
+Begin Main Menu
+
+User chose Quit
 

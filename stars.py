@@ -3,7 +3,7 @@
 #   File:       stars.py
 #   Desc:       This file is used to handle any functions or objects related to stars.
 #----------------------------------------------------------------------------------------
-version = '1'
+version = '2'
 
 #----------------------------------------------------------------------------------------
 # ██ ███    ███ ██████   ██████  ██████  ████████ ███████
@@ -49,10 +49,10 @@ def amountOfStars(random):
                    'Go back',
                    'Quit']
         selection = useMenu(choices)
-        if selection == 3:
+        if selection == 4:
             log('User chose to Go Back')
             return 0
-        elif selection == 4:
+        elif selection == 5:
             log('User chose to Quit')
             quit()
 
