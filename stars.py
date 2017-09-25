@@ -26,7 +26,7 @@ from menu import useMenu
 # ██       ██████  ██   ████  ██████    ██    ██  ██████  ██   ████ ███████
 #----------------------------------------------------------------------------------------
 def getStars(random = True):
-    log('In Get Stars')
+    log('In Get Stars\nRandom = {}'.format(random))
     # Determine the number of stars
     numberOfStars = amountOfStars(random)
     if numberOfStars == 0:
@@ -37,7 +37,7 @@ def getStars(random = True):
     return ['he']
 
 def amountOfStars(random):
-    log('In Amount Of Stars')
+    log('In Amount Of Stars\nRandom = {}'.format(random))
     if random:
         log('Passing on random')
         pass

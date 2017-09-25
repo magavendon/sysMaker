@@ -1,20 +1,18 @@
-2017-09-21 14:17:44.549222
-Start Creator
-
-Open Main Menu
-
-End Creator
-
-2017-09-25 17:40:13.590831
+2017-09-25 17:45:02.114106
 Start Creator
 
 Begin Main Menu
 
 User chose Optional
 
+In Create System
+Random = False
+
 In Get Stars
+Random = True
 
 In Amount Of Stars
+Random = True
 
 Passing on random
 

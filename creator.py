@@ -52,6 +52,7 @@ def mainMenu():
 
 # Create system
 def createSystem(random = True):
+    log('In Create System\nRandom = {}'.format(str(random)))
     # Get the system's stars
     stars = []
     stars = getStars()
