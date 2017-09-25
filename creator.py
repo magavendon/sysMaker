@@ -3,7 +3,7 @@
 #   File:       creator.py
 #   Desc:       This is the main file for running the entire program.
 #----------------------------------------------------------------------------------------
-version = '2'
+version = '3'
 
 #----------------------------------------------------------------------------------------
 # ██ ███    ███ ██████   ██████  ██████  ████████ ███████
@@ -55,7 +55,7 @@ def createSystem(random = True):
     log('In Create System\nRandom = {}'.format(str(random)))
     # Get the system's stars
     stars = []
-    stars = getStars()
+    stars = getStars(random)
     if len(stars) == 0:
         mainMenu()
 
