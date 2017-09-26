@@ -38,26 +38,29 @@ def getStars(random = True):
 
 def amountOfStars(random):
     log('In Amount Of Stars\nRandom = {}'.format(random))
-    if random:
-        log('Passing on random')
-        pass
-    else:
+    if not random:
         log('Doing choice')
         choices = ['1 star',
                    '2 stars',
                    '3 stars',
+                   'Random',
                    'Go back',
                    'Quit']
         selection = useMenu(choices)
         if selection == 4:
+            random = True
+        if selection == 5:
             log('User chose to Go Back')
             return 0
-        elif selection == 5:
+        elif selection == 6:
             log('User chose to Quit')
             quit()
 
         log('User chose an amount of stars\nLeaving Amount of Stars')
         return selection
+
+    if random:
+        pass
 
 #----------------------------------------------------------------------------------------
 #  ██████  ██████       ██ ███████  ██████ ████████ ███████
@@ -67,6 +70,8 @@ def amountOfStars(random):
 #  ██████  ██████   █████  ███████  ██████    ██    ███████
 #----------------------------------------------------------------------------------------
 class Star:
+    RANDOM = False
+
     mass = 0
     age = 0
     luminosity = 0
@@ -77,3 +82,19 @@ class Star:
     eccentricity = (0, 0)
     orbitalZones = (0, 0, 0)
     forbiddenZone = (0, 0)
+
+    def __init__(self, random):
+        self.RANDOM = random
+
+    def getMass(self):
+        random = self.RANDOM
+        if not random:
+            choices = []
+            selection = useMenu(choices)
+            if selection == 1:
+                pass
+            elif selection == 2:
+                pass
+
+        if random:
+            pass
