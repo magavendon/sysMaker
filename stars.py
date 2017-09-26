@@ -67,4 +67,13 @@ def amountOfStars(random):
 #  ██████  ██████   █████  ███████  ██████    ██    ███████
 #----------------------------------------------------------------------------------------
 class Star:
-    pass
+    mass = 0
+    age = 0
+    luminosity = 0
+    temperature = 0
+    radius = 0
+    companion = False
+    orbit = 0
+    eccentricity = (0, 0)
+    orbitalZones = (0, 0, 0)
+    forbiddenZone = (0, 0)
