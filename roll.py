@@ -60,15 +60,26 @@ def rollDice(amount, dieType, showIndividualRolls = False):
 #  ██████  ██   ████ ██    ██           ██    ███████ ███████    ██
 #----------------------------------------------------------------------------------------
 if __name__ == '__main__':
+  from string import Template
+
+  out = Template('Test number $test\n$description\nResults:\n$results\n\n')
+
   roll = None
   for x in range(0,1000):
     roll = rollDie(6)
-  print(roll)
+  print(out.substitute(
+    test = 1,
+    description = 'Single roll of a d6',
+    results = roll))
 
   customFaces = ['hello', 'world', 'foo', 'bar', 'boo', 'baz']
   for x in range(0, 1000):
     roll = rollCustomDie(customFaces)
-  print(roll)
+  print(out.substitute(
+    test = 2,
+    description = 'Single roll of a custom d6. Using the following ' +
+      'faces:\n{}'.format(customFaces),
+    results = roll))
 
   roll = [None, None, None, None]
   for x in range(0, 4):
@@ -80,7 +91,10 @@ if __name__ == '__main__':
       roll[2] = rollDice(4, 4)
     for y in range(0, 250):
       roll[3] = rollDice(5, 4)
-  print(roll)
+  print(out.substitute(
+    test = 3,
+    description = 'Multiple rolls of a d4 using 2, 3, 4, then 5 dice each',
+    results = roll))
 
   for x in range(0, 4):
     for y in range(0, 250):
@@ -91,4 +105,11 @@ if __name__ == '__main__':
       roll[2] = rollDice(4, 4, True)
     for y in range(0, 250):
       roll[3] = rollDice(5, 4, True)
-  print(roll)
+  result = ''
+  for x in roll:
+    result = '{}{}\n'.format(result, x)
+  print(out.substitute(
+    test = 4,
+    description = 'Multiple rolls of a d4 using 2, 3, 4, then 5 dice each ' +
+      'with the individual rolls shown.',
+    results = roll))
