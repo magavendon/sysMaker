@@ -59,9 +59,9 @@ def amountOfStars(random):
             log('User chose to Quit')
             quit()
 
-
     if random:
         pass
+
 
 #----------------------------------------------------------------------------------------
 #  ██████  ██████       ██ ███████  ██████ ████████ ███████
@@ -71,31 +71,32 @@ def amountOfStars(random):
 #  ██████  ██████   █████  ███████  ██████    ██    ███████
 #----------------------------------------------------------------------------------------
 class Star:
-    RANDOM = False
+  RANDOM = False
 
-    mass = 0
-    age = 0
-    luminosity = 0
-    temperature = 0
-    radius = 0
-    companion = False
-    orbit = 0
-    eccentricity = (0, 0)
-    orbitalZones = (0, 0, 0)
-    forbiddenZone = (0, 0)
+  mass = 0
+  age = 0
+  luminosity = 0
+  temperature = 0
+  radius = 0
+  companion = False
+  orbit = 0
+  eccentricity = (0, 0)
+  orbitalZones = (0, 0, 0)
+  forbiddenZone = (0, 0)
 
-    def __init__(self, random):
-        self.RANDOM = random
+  def __init__(self, random):
+    self.RANDOM = random
 
-    def getMass(self):
-        random = self.RANDOM
-        if not random:
-            choices = []
-            selection = useMenu(choices)
-            if selection == 1:
-                pass
-            elif selection == 2:
-                pass
+  def getMass(self):
+    random = self.RANDOM
+    if not random:
+      choices = ['Select mass',
+                 'Random mass']
+      selection = useMenu(choices)
+    if selection == 1:
+      pass
+    elif selection == 2:
+      random = True
 
-        if random:
-            pass
+    if random:
+      pass
