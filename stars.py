@@ -47,6 +47,9 @@ def amountOfStars(random):
                    'Go back',
                    'Quit']
         selection = useMenu(choices)
+        if selection <= 3:
+          log('User chose an amount of stars\nLeaving Amount of Stars')
+          return selection
         if selection == 4:
             random = True
         if selection == 5:
@@ -56,8 +59,6 @@ def amountOfStars(random):
             log('User chose to Quit')
             quit()
 
-        log('User chose an amount of stars\nLeaving Amount of Stars')
-        return selection
 
     if random:
         pass
