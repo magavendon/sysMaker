@@ -36,13 +36,15 @@ def rollCustomDie(customFaces):
 
 def rollDice(amount, dieType, showIndividualRolls = False):
   # Define rolls list of showing individual rolls.
-  rolls = [] if showIndividualRolls else pass
+  if showIndividualRolls:
+    rolls = []
   sumOfRolls = 0
   # Roll each die.
   for rollNumber in range(0, amount):
     rollResult = rollDie(dieType)
     sumOfRolls += rollResult
-    rolls.append(rollResult) if showIndividualRolls else pass
+    if showIndividualRolls:
+      rolls.append(rollResult)
 
   # Return results.
   if showIndividualRolls:
@@ -65,7 +67,7 @@ if __name__ == '__main__':
 
   customFaces = ['hello', 'world', 'foo', 'bar', 'boo', 'baz']
   for x in range(0, 1000):
-    roll = rollCustomDie(customFaces))
+    roll = rollCustomDie(customFaces)
   print(roll)
 
   roll = [None, None, None, None]
