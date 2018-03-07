@@ -112,4 +112,4 @@ if __name__ == '__main__':
     test = 4,
     description = 'Multiple rolls of a d4 using 2, 3, 4, then 5 dice each ' +
       'with the individual rolls shown.',
-    results = roll))
+    results = result))
