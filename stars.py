@@ -72,7 +72,13 @@ def amountOfStars(random):
       quit()
 
   if random:
-    pass
+    roll = rollDice(3, 6)
+    if roll < 11:
+      return 1
+    elif roll < 16:
+      return 2
+    else:
+      return 3
 
 
 #----------------------------------------------------------------------------------------
@@ -116,6 +122,7 @@ class Star:
         print('\n{}companion star.'.format(outputMessage))
 
     self.getMass()
+    self.getAge()
 
   # Set the Stellar Mass
   def setStellarMass(self, roll1, roll2 = None):
@@ -234,10 +241,10 @@ class Star:
       choices = ['Select mass',
                  'Random mass']
       selection = useMenu(choices)
-    if selection == 1:
-      self.mass = numberMenu([(0.08, 2.05)], 2)
-    elif selection == 2:
-      random = True
+      if selection == 1:
+        self.mass = numberMenu([(0.08, 2.05)], 2)
+      elif selection == 2:
+        random = True
 
     if random:
       if not self.companion:
@@ -267,5 +274,5 @@ class Star:
           self.setStellarMass(roll)
 
   def getAge(self):
-    pass
+    random = self.RANDOM
 
