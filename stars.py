@@ -14,7 +14,7 @@ version = '2'
 #----------------------------------------------------------------------------------------
 # Default Python Imports
 from sys import exit as quit
-from random import randit
+from random import randint
 # Project File Imports
 from logger import log
 from menu import useMenu
