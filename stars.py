@@ -211,6 +211,8 @@ class Star:
       # Set the mass
       self.mass = mass
 
+    self.mass = round(self.mass, 2)
+
   def getMass(self):
     random = self.RANDOM
     if not random:
