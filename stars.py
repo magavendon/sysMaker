@@ -31,12 +31,21 @@ def getStars(random = True):
   log('In Get Stars\nRandom = {}'.format(random))
   # Determine the number of stars
   numberOfStars = amountOfStars(random)
+  # Create a list to hold the stars
+  systemStars = []
+  # Evaluate the user's decision
   if numberOfStars == 0:
-    log('User chose an amount of stars')
-    return []
+    log('User chose to go back')
+  else:
+    log('Some amount of stars were decided')
+    # Create a each star
+    for star in range(0, amountOfStars):
+      if star == 0:
+        systemStars.append(Star(random))
+      else:
+        systemStars.append(Star(random, systemStars[0]))
 
-  log('User chose to Go Back')
-  return ['he']
+  return systemStars
 
 def amountOfStars(random):
   log('In Amount Of Stars\nRandom = {}'.format(random))
@@ -80,14 +89,18 @@ class Star:
   luminosity = 0
   temperature = 0
   radius = 0
+  primary = None
   companion = False
   orbit = 0
   eccentricity = (0, 0)
   orbitalZones = (0, 0, 0)
   forbiddenZone = (0, 0)
 
-  def __init__(self, random):
+  def __init__(self, random, primary = None):
     self.RANDOM = random
+    if primary:
+      self.primary = primary
+      self.companion = True
 
   # Set the Stellar Mass
   def setStellarMass(self, roll1, roll2 = None):
