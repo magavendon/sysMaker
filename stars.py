@@ -40,7 +40,7 @@ def getStars(random = True):
   else:
     log('Some amount of stars were decided')
     # Create a each star
-    for star in range(0, amountOfStars):
+    for star in range(0, numberOfStars):
       if star == 0:
         systemStars.append(Star(random))
       else:
