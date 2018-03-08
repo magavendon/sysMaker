@@ -275,4 +275,9 @@ class Star:
 
   def getAge(self):
     random = self.RANDOM
+    if not random:
+      pass
+
+    if random:
+      pass
 
