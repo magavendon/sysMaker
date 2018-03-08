@@ -18,6 +18,7 @@ from random import randint
 # Project File Imports
 from logger import log
 from menu import useMenu
+from menu import limitedNumberChoice as numberMenu
 from roll import *
 
 #----------------------------------------------------------------------------------------
@@ -220,7 +221,7 @@ class Star:
                  'Random mass']
       selection = useMenu(choices)
     if selection == 1:
-      pass
+      self.mass = numberMenu([(0.08, 2.05)], 2)
     elif selection == 2:
       random = True
 
