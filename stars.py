@@ -103,6 +103,20 @@ class Star:
       self.primary = primary
       self.companion = True
 
+    # Create the star
+    self.createStar()
+
+  # Go through prompts and whatnot for creating the star.
+  def createStar(self):
+    if not self.RANDOM:
+      outputMessage = 'Working on the '
+      if not self.primary:
+        print('\n{}primary star.'.format(outputMessage))
+      else:
+        print('\n{}companion star.'.format(outputMessage))
+
+    self.getMass()
+
   # Set the Stellar Mass
   def setStellarMass(self, roll1, roll2 = None):
     bigSmudge = [
