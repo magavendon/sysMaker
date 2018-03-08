@@ -197,8 +197,19 @@ class Star:
         else:
           self.mass = 0.10 + smallSmudge
     else:
-      # TODO Figure out how to compare to the primary star.
-      pass
+      # Start with the primary's mass
+      mass = self.primary.mass
+      # Go down the list a number of times equal to the roll.
+      for step in range(0, roll1):
+        if mass >= 1.56:
+          mass -= 0.10
+        else:
+          mass -= 0.05
+      # Reset mass if too low.
+      if mass < 0.08:
+        mass = 0.08
+      # Set the mass
+      self.mass = mass
 
   def getMass(self):
     random = self.RANDOM
@@ -227,13 +238,17 @@ class Star:
         # Figure out if the companion has the same mass as the primary.
         diceToRoll = rollDie(6) - 1
         if diceToRoll == 0:
-          # TODO Figure out how to compare to the primary star.
           # Use pretty much the same solar mass as the primary.
-          pass
+          smudge = [0,0,0,0,.01,.01,.01,.02,.02,.03]
+          smudge = smudge[randint(0,len(smudge)-1)]
+          self.mass = self.primary.mass - smudge
         else:
           # Figure out how many entries to go down the table.
           roll = rollDice(diceToRoll, 6)
 
           # Set the stellar mass based on the table.
           setStellarMass(roll)
+
+  def getAge(self):
+    pass
 
