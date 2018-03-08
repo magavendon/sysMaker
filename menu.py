@@ -51,7 +51,7 @@ def limitedNumberChoice(limits, rounding = 0):
       userChoice = float(input(promptString))
       brokeLimits = True
       for limit in limits:
-        if userChoice >= limit[0] or userChoice <= limit[1]:
+        if userChoice >= limit[0] and userChoice <= limit[1]:
           brokeLimits = False
       if brokeLimits:
         raise ValueError('Outside of limits')
