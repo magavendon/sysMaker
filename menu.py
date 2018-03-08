@@ -36,7 +36,7 @@ def limitedNumberChoice(limits, rounding = 0):
       limit = limits[limitIndex]
       betweenString = '{}{} and {}'.format(betweenString, limit[0], limit[1])
       if limitIndex == len(limits) - 1:
-        betweenString += ':'
+        betweenString += ': '
       else:
         betweenString += ' or '
 
@@ -52,11 +52,14 @@ def limitedNumberChoice(limits, rounding = 0):
       brokeLimits = True
       for limit in limits:
         if userChoice >= limit[0] or userChoice <= limit[1]:
-          brokeLimits + False
+          brokeLimits = False
       if brokeLimits:
         raise ValueError('Outside of limits')
     except ValueError:
       print('Please choose a value within the limits.')
       userChoice = None
 
-  return userChoice
+  if rounding == 0:
+    return int(userChoice)
+  else:
+    return round(userChoice, rounding)
