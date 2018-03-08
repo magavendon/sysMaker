@@ -223,7 +223,7 @@ class Star:
       random = True
 
     if random:
-      if not companion:
+      if not self.companion:
         # Generate size like normal (with my special changes).
 
         # Use 2 dice instead of 3 because the average is closer to Sol.
@@ -231,7 +231,7 @@ class Star:
         secondRoll = rollDice(3, 6)
 
         # Set the stellar mass based on the table.
-        setStellarMass(firstRoll, secondRoll)
+        self.setStellarMass(firstRoll, secondRoll)
       else:
         # Generate size based on primary.
 
@@ -247,7 +247,7 @@ class Star:
           roll = rollDice(diceToRoll, 6)
 
           # Set the stellar mass based on the table.
-          setStellarMass(roll)
+          self.setStellarMass(roll)
 
   def getAge(self):
     pass
