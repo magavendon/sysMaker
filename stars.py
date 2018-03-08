@@ -28,41 +28,41 @@ from roll import *
 # ██       ██████  ██   ████  ██████    ██    ██  ██████  ██   ████ ███████
 #----------------------------------------------------------------------------------------
 def getStars(random = True):
-    log('In Get Stars\nRandom = {}'.format(random))
-    # Determine the number of stars
-    numberOfStars = amountOfStars(random)
-    if numberOfStars == 0:
-        log('User chose an amount of stars')
-        return []
+  log('In Get Stars\nRandom = {}'.format(random))
+  # Determine the number of stars
+  numberOfStars = amountOfStars(random)
+  if numberOfStars == 0:
+    log('User chose an amount of stars')
+    return []
 
-    log('User chose to Go Back')
-    return ['he']
+  log('User chose to Go Back')
+  return ['he']
 
 def amountOfStars(random):
-    log('In Amount Of Stars\nRandom = {}'.format(random))
-    if not random:
-        log('Doing choice')
-        choices = ['1 star',
-                   '2 stars',
-                   '3 stars',
-                   'Random',
-                   'Go back',
-                   'Quit']
-        selection = useMenu(choices)
-        if selection <= 3:
-          log('User chose an amount of stars\nLeaving Amount of Stars')
-          return selection
-        if selection == 4:
-            random = True
-        if selection == 5:
-            log('User chose to Go Back')
-            return 0
-        elif selection == 6:
-            log('User chose to Quit')
-            quit()
+  log('In Amount Of Stars\nRandom = {}'.format(random))
+  if not random:
+    log('Doing choice')
+    choices = ['1 star',
+               '2 stars',
+               '3 stars',
+               'Random',
+               'Go back',
+               'Quit']
+    selection = useMenu(choices)
+    if selection <= 3:
+      log('User chose an amount of stars\nLeaving Amount of Stars')
+      return selection
+    if selection == 4:
+      random = True
+    if selection == 5:
+      log('User chose to Go Back')
+      return 0
+    elif selection == 6:
+      log('User chose to Quit')
+      quit()
 
-    if random:
-        pass
+  if random:
+    pass
 
 
 #----------------------------------------------------------------------------------------
