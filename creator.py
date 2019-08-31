@@ -3,4 +3,3 @@
 #   File:       creator.py
 #   Desc:       This is the main file for running the entire program.
 #----------------------------------------------------------------------------------------
-version = '0.0.1'
