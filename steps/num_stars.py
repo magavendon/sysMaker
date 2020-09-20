@@ -8,30 +8,21 @@ from PySide2.QtWidgets import QLabel
 from PySide2.QtWidgets import QPushButton
 from PySide2.QtWidgets import QRadioButton
 from PySide2.QtWidgets import QVBoxLayout
-from PySide2.QtWidgets import QWidget
 
 from die_roller import dice
-from font import Font
+from window import Window
 import system
 
-class Num_Stars(QWidget):
+class Num_Stars(Window):
     show = Signal(int, str)
 
     def __init__(self):
         # Parent class init
-        QWidget.__init__(self)
-
-        # Set title
-        self.title = 'Number of Stars'
-
-        # Set fonts.
-        sys_font = Font()
-        box_title_font = Font()
-        box_title_font.setPointSize(14)
+        Window.__init__(self, 'Number of Stars')
 
         # Stars label
         self.stars_label = QLabel('Stars: None')
-        self.stars_label.setFont(sys_font)
+        self.stars_label.setFont(self.sys_font)
         label_layout = QHBoxLayout()
         label_layout.addWidget(self.stars_label)
         label_layout.addStretch()
@@ -47,7 +38,7 @@ class Num_Stars(QWidget):
 
         # Star selection box
         star_selection = QGroupBox('Select number of stars')
-        star_selection.setFont(box_title_font)
+        star_selection.setFont(self.box_title_font)
         selection_layout = QHBoxLayout()
         selection_layout.addWidget(star_selection)
         selection_layout.addStretch()
@@ -56,9 +47,9 @@ class Num_Stars(QWidget):
         one_star    = QRadioButton('1 Star'  , star_selection)
         two_stars   = QRadioButton('2 Stars' , star_selection)
         three_stars = QRadioButton('3 Stars' , star_selection)
-        one_star.setFont(sys_font)
-        two_stars.setFont(sys_font)
-        three_stars.setFont(sys_font)
+        one_star.setFont(self.sys_font)
+        two_stars.setFont(self.sys_font)
+        three_stars.setFont(self.sys_font)
         one_star.pressed.connect(lambda x=1: self.update_stars(x))
         two_stars.pressed.connect(lambda x=2: self.update_stars(x))
         three_stars.pressed.connect(lambda x=3: self.update_stars(x))
@@ -73,14 +64,14 @@ class Num_Stars(QWidget):
 
         # Randomization box
         randomization = QGroupBox('Randomization')
-        randomization.setFont(box_title_font)
+        randomization.setFont(self.box_title_font)
         randomization_layout = QHBoxLayout()
         randomization_layout.addWidget(randomization)
         randomization_layout.addStretch()
 
         # Open cluster checkbox
         self.open_cluster = QCheckBox('Open Cluster')
-        self.open_cluster.setFont(sys_font)
+        self.open_cluster.setFont(self.sys_font)
         self.open_cluster.stateChanged.connect(self.update_probability_table)
 
         # Open cluster modifier
@@ -132,7 +123,7 @@ class Num_Stars(QWidget):
 
         # Randomize button
         randomize = QPushButton('Randomize')
-        randomize.setFont(sys_font)
+        randomize.setFont(self.sys_font)
         randomize.pressed.connect(self.randomize_stars)
 
         # Randomize layout
