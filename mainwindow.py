@@ -1,5 +1,6 @@
 from PySide2.QtWidgets import QFrame
 from PySide2.QtWidgets import QGridLayout
+from PySide2.QtWidgets import QScrollArea
 from PySide2.QtWidgets import QStackedWidget
 from PySide2.QtWidgets import QWidget
 
@@ -66,8 +67,12 @@ class MainWindow(QWidget):
     # Setup screen connection.
     new_screen.show.connect(update_screen)
 
+    # Place screen in a scroll area
+    scroll_area = QScrollArea()
+    scroll_area.setWidget(new_screen)
+
     # Add screen instances.
-    self.view.addWidget(new_screen)
+    self.view.addWidget(scroll_area)
 
   def mousePressEvent(self, e):
     # Get menu dimensions
