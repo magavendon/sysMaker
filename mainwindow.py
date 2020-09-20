@@ -8,7 +8,8 @@ from home import Home
 from info import InfoPanel
 from menu import Menu
 
-from steps.num_stars import Num_Stars
+from steps.num_stars   import Num_Stars
+from steps.star_masses import Star_Masses
 
 class MainWindow(QWidget):
   def __init__(self):
@@ -37,6 +38,7 @@ class MainWindow(QWidget):
     # These lines must be after adding info view, so the title can be updated.
     self.add_screen(Home())
     self.add_screen(Num_Stars())
+    self.add_screen(Star_Masses())
 
     # Add separator line
     v_sep = QFrame()
