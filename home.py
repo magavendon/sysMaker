@@ -50,3 +50,6 @@ class Home(QWidget):
 
         # Set the layout
         self.setLayout(h_layout)
+
+    def update_info(self):
+        pass

@@ -153,7 +153,8 @@ class Num_Stars(Window):
         self.setLayout(layout)
 
     def update_stars(self, stars):
-        system.current.num_of_stars = stars
+        system.current.update_stars(stars)
+        system.current.masses[0] = 0.00 + stars
         self.stars_label.setText(f'Stars: {stars}')
 
     def update_probability_table(self, check):

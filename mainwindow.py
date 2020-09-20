@@ -66,6 +66,7 @@ class MainWindow(QWidget):
     def update_screen(ndx):
       self.view.setCurrentIndex(ndx)
       self.info.title.setText(self.view.currentWidget().widget().title)
+      self.view.currentWidget().widget().update_info()
       self.menu.setVisible(False)
 
     # Setup screen connection.

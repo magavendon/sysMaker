@@ -17,3 +17,6 @@ class Window(QWidget):
         self.sys_font = Font()
         self.box_title_font = Font()
         self.box_title_font.setPointSize(14)
+
+    def update_info(self):
+        pass
