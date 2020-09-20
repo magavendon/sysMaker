@@ -7,6 +7,7 @@ from PySide2.QtWidgets import QWidget
 from home import Home
 from info import InfoPanel
 from menu import Menu
+from menubutton import Menu_Button
 
 from steps.num_stars import Num_Stars
 
@@ -27,6 +28,7 @@ class MainWindow(QWidget):
 
     # Add menu
     self.menu = Menu()
+    self.menu.setVisible(False)
 
     # Add info view
     self.info = InfoPanel()
@@ -67,12 +69,16 @@ class MainWindow(QWidget):
     # Setup screen connection.
     new_screen.show.connect(update_screen)
 
-    # Place screen in a scroll area
+    # Place screen in a scroll area.
     scroll_area = QScrollArea()
     scroll_area.setWidget(new_screen)
 
     # Add screen instances.
     self.view.addWidget(scroll_area)
+
+    # Create the menu button for this screen.
+    menu_button = Menu_Button(new_screen.title, self.view.count() - 1)
+    self.menu.layout().insertWidget(self.menu.layout().count() - 1, menu_button)
 
   def mousePressEvent(self, e):
     # Get menu dimensions

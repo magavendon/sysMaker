@@ -14,8 +14,6 @@ from window import Window
 import system
 
 class Num_Stars(Window):
-    show = Signal(int, str)
-
     def __init__(self):
         # Parent class init
         Window.__init__(self, 'Number of Stars')
