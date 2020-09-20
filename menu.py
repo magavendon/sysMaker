@@ -20,9 +20,10 @@ class Menu(QWidget):
         layout.addStretch()
         self.setLayout(layout)
 
-    def add_button(self, title, screen):
+    def add_button(self, title, screen, update_function):
         # Create the menu button.
         menu_button = Menu_Button(title, screen)
+        menu_button.pressed.connect(lambda x=screen: update_function(x))
 
         # Add the button.
         self.layout().insertWidget(self.layout().count() - 1, menu_button)

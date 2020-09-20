@@ -76,7 +76,7 @@ class MainWindow(QWidget):
     self.view.addWidget(scroll_area)
 
     # Add the screen to the menu.
-    self.menu.add_button(new_screen.title, self.view.count() - 1)
+    self.menu.add_button(new_screen.title, self.view.count() - 1, update_screen)
 
   def mousePressEvent(self, e):
     # Get menu dimensions
