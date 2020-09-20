@@ -18,6 +18,16 @@ class Star_Masses(Window):
         masses_layout.addWidget(self.masses)
         masses_layout.addStretch()
 
+        # Update masses label
+        if len(system.current.masses) > 0:
+            update_text = ''
+            for i in range(0, len(system.current.masses)):
+                mass = system.current.masses[i]
+                update_text += \
+                    f'{chr(65 + i)}: {mass:.2f}' + \
+                    f'{"   " if i < len(system.current.masses) - 1 else ""}'
+            self.masses.setText(update_text)
+
         # Create layout
         layout = QVBoxLayout()
         layout.addLayout(masses_layout)
