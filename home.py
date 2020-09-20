@@ -7,7 +7,7 @@ from PySide2.QtWidgets import QWidget
 from font import Font
 
 class Home(QWidget):
-    show = Signal(int, str)
+    show = Signal(int)
 
     def __init__(self):
         # Parent class init
@@ -22,8 +22,7 @@ class Home(QWidget):
         # Add new system button
         new_system = QPushButton('New System')
         new_system.setFont(sys_font)
-        new_system.pressed.connect(lambda x=1:
-                                   self.show.emit(x, 'Number of Stars'))
+        new_system.pressed.connect(lambda x=1: self.show.emit(x))
 
         # Add load system button
         load_system = QPushButton('Load System')

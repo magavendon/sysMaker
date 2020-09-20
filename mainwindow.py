@@ -61,9 +61,9 @@ class MainWindow(QWidget):
     self.setLayout(layout)
 
   def add_screen(self, new_screen):
-    def update_screen(ndx, title):
+    def update_screen(ndx):
       self.view.setCurrentIndex(ndx)
-      self.info.title.setText(title)
+      self.info.title.setText(self.view.currentWidget().widget().title)
 
     # Setup screen connection.
     new_screen.show.connect(update_screen)

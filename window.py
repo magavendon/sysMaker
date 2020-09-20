@@ -4,7 +4,7 @@ from PySide2.QtWidgets import QWidget
 from font import Font
 
 class Window(QWidget):
-    show = Signal(int, str)
+    show = Signal(int)
 
     def __init__(self, title):
         # Parent class init
