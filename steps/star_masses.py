@@ -44,6 +44,8 @@ class Star_Masses(Window):
         first_label.setFont(self.sys_font)
         self.first_mass.setFont(self.sys_font)
         first_set.setFont(self.sys_font)
+        self.first_mass.returnPressed.connect(self.update_masses)
+        first_set.pressed.connect(self.update_masses)
         first_layout = QHBoxLayout()
         first_layout.addWidget(first_label)
         first_layout.addWidget(self.first_mass)
@@ -59,6 +61,8 @@ class Star_Masses(Window):
         second_label.setFont(self.sys_font)
         self.second_mass.setFont(self.sys_font)
         second_set.setFont(self.sys_font)
+        self.second_mass.returnPressed.connect(self.update_masses)
+        second_set.pressed.connect(self.update_masses)
         second_layout = QHBoxLayout()
         second_layout.addWidget(second_label)
         second_layout.addWidget(self.second_mass)
@@ -74,6 +78,8 @@ class Star_Masses(Window):
         third_label.setFont(self.sys_font)
         self.third_mass.setFont(self.sys_font)
         third_set.setFont(self.sys_font)
+        self.third_mass.returnPressed.connect(self.update_masses)
+        third_set.pressed.connect(self.update_masses)
         third_layout = QHBoxLayout()
         third_layout.addWidget(third_label)
         third_layout.addWidget(self.third_mass)
@@ -96,6 +102,20 @@ class Star_Masses(Window):
         layout.addLayout(selection_layout)
         layout.addStretch()
         self.setLayout(layout)
+
+    def update_masses(self):
+        vals = []
+        if system.current.num_of_stars >= 1:
+            vals.append(self.first_mass.text())
+        if system.current.num_of_stars >= 2:
+            vals.append(self.second_mass.text())
+        if system.current.num_of_stars == 3:
+            vals.append(self.third_mass.text())
+
+        for i in range(0, len(vals)):
+            system.current.update_mass(i, float(vals[i]))
+
+        self.update_info()
 
     def update_masses_label(self):
         if len(system.current.masses) > 0:

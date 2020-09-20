@@ -15,4 +15,8 @@ class System():
         while (stars > len(self.masses)):
             self.masses.append(0.10)
 
+    def update_mass(self, star, mass):
+        self.masses[star] = mass
+        self.masses.sort(reverse = True)
+
 current = System()
