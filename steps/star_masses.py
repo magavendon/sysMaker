@@ -37,16 +37,16 @@ class Star_Masses(Window):
         selection_layout.addStretch()
 
         # First mass selection
-        first_widget = QWidget()
-        first_label  = QLabel('Star A:')
-        first_mass   = QLineEdit()
-        first_set    = QPushButton('Set Mass')
+        first_widget    = QWidget()
+        first_label     = QLabel('Star A:')
+        self.first_mass = QLineEdit()
+        first_set       = QPushButton('Set Mass')
         first_label.setFont(self.sys_font)
-        first_mass.setFont(self.sys_font)
+        self.first_mass.setFont(self.sys_font)
         first_set.setFont(self.sys_font)
         first_layout = QHBoxLayout()
         first_layout.addWidget(first_label)
-        first_layout.addWidget(first_mass)
+        first_layout.addWidget(self.first_mass)
         first_layout.addWidget(first_set)
         first_layout.addStretch()
         first_widget.setLayout(first_layout)
@@ -54,14 +54,14 @@ class Star_Masses(Window):
         # Second mass selection
         self.second_widget = QWidget()
         second_label       = QLabel('Star B:')
-        second_mass        = QLineEdit()
+        self.second_mass   = QLineEdit()
         second_set         = QPushButton('Set Mass')
         second_label.setFont(self.sys_font)
-        second_mass.setFont(self.sys_font)
+        self.second_mass.setFont(self.sys_font)
         second_set.setFont(self.sys_font)
         second_layout = QHBoxLayout()
         second_layout.addWidget(second_label)
-        second_layout.addWidget(second_mass)
+        second_layout.addWidget(self.second_mass)
         second_layout.addWidget(second_set)
         second_layout.addStretch()
         self.second_widget.setLayout(second_layout)
@@ -69,14 +69,14 @@ class Star_Masses(Window):
         # Third mass selection
         self.third_widget = QWidget()
         third_label       = QLabel('Star C:')
-        third_mass        = QLineEdit()
+        self.third_mass   = QLineEdit()
         third_set         = QPushButton('Set Mass')
         third_label.setFont(self.sys_font)
-        third_mass.setFont(self.sys_font)
+        self.third_mass.setFont(self.sys_font)
         third_set.setFont(self.sys_font)
         third_layout = QHBoxLayout()
         third_layout.addWidget(third_label)
-        third_layout.addWidget(third_mass)
+        third_layout.addWidget(self.third_mass)
         third_layout.addWidget(third_set)
         third_layout.addStretch()
         self.third_widget.setLayout(third_layout)
@@ -108,10 +108,22 @@ class Star_Masses(Window):
             self.masses.setText(update_text)
 
     def update_mass_edits(self):
+        # Determine which lines are visible.
         second = True if len(system.current.masses) >= 2 else False
         third  = True if len(system.current.masses) == 3 else False
         self.second_widget.setVisible(second)
         self.third_widget.setVisible(third)
+
+        # Update the first line edit.
+        self.first_mass.setText(f'{system.current.masses[0]:.2f}')
+
+        # Update the second line edit.
+        if second:
+            self.second_mass.setText(f'{system.current.masses[1]:.2f}')
+
+        # Update the third line edit.
+        if third:
+            self.third_mass.setText(f'{system.current.masses[2]:.2f}')
 
     def update_info(self):
         self.update_masses_label()
