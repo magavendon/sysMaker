@@ -4,6 +4,7 @@ from PySide2.QtWidgets import QVBoxLayout
 from PySide2.QtWidgets import QWidget
 
 from font import Font
+from menubutton import Menu_Button
 
 class Menu(QWidget):
     show = Signal(int)
@@ -18,6 +19,13 @@ class Menu(QWidget):
         layout.setSpacing(0)
         layout.addStretch()
         self.setLayout(layout)
+
+    def add_button(self, title, screen):
+        # Create the menu button.
+        menu_button = Menu_Button(title, screen)
+
+        # Add the button.
+        self.layout().insertWidget(self.layout().count() - 1, menu_button)
 
     def set_menu(self, widgets):
         # Get font instance
