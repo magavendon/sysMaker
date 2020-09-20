@@ -5,6 +5,7 @@ from PySide2.QtWidgets import QLabel
 from PySide2.QtWidgets import QLineEdit
 from PySide2.QtWidgets import QPushButton
 from PySide2.QtWidgets import QVBoxLayout
+from PySide2.QtWidgets import QWidget
 
 from window import Window
 
@@ -36,9 +37,10 @@ class Star_Masses(Window):
         selection_layout.addStretch()
 
         # First mass selection
-        first_label = QLabel('Star A:')
-        first_mass  = QLineEdit()
-        first_set   = QPushButton('Set Mass')
+        first_widget = QWidget()
+        first_label  = QLabel('Star A:')
+        first_mass   = QLineEdit()
+        first_set    = QPushButton('Set Mass')
         first_label.setFont(self.sys_font)
         first_mass.setFont(self.sys_font)
         first_set.setFont(self.sys_font)
@@ -47,11 +49,13 @@ class Star_Masses(Window):
         first_layout.addWidget(first_mass)
         first_layout.addWidget(first_set)
         first_layout.addStretch()
+        first_widget.setLayout(first_layout)
 
         # Second mass selection
-        second_label = QLabel('Star B:')
-        second_mass  = QLineEdit()
-        second_set   = QPushButton('Set Mass')
+        self.second_widget = QWidget()
+        second_label       = QLabel('Star B:')
+        second_mass        = QLineEdit()
+        second_set         = QPushButton('Set Mass')
         second_label.setFont(self.sys_font)
         second_mass.setFont(self.sys_font)
         second_set.setFont(self.sys_font)
@@ -60,11 +64,13 @@ class Star_Masses(Window):
         second_layout.addWidget(second_mass)
         second_layout.addWidget(second_set)
         second_layout.addStretch()
+        self.second_widget.setLayout(second_layout)
 
         # Third mass selection
-        third_label = QLabel('Star C:')
-        third_mass  = QLineEdit()
-        third_set   = QPushButton('Set Mass')
+        self.third_widget = QWidget()
+        third_label       = QLabel('Star C:')
+        third_mass        = QLineEdit()
+        third_set         = QPushButton('Set Mass')
         third_label.setFont(self.sys_font)
         third_mass.setFont(self.sys_font)
         third_set.setFont(self.sys_font)
@@ -73,12 +79,13 @@ class Star_Masses(Window):
         third_layout.addWidget(third_mass)
         third_layout.addWidget(third_set)
         third_layout.addStretch()
+        self.third_widget.setLayout(third_layout)
 
         # Set mass selection box layout
         mass_selection_layout = QVBoxLayout()
-        mass_selection_layout.addLayout(first_layout)
-        mass_selection_layout.addLayout(second_layout)
-        mass_selection_layout.addLayout(third_layout)
+        mass_selection_layout.addWidget(first_widget)
+        mass_selection_layout.addWidget(self.second_widget)
+        mass_selection_layout.addWidget(self.third_widget)
         mass_selection.setLayout(mass_selection_layout)
 
         # Create layout
@@ -100,5 +107,12 @@ class Star_Masses(Window):
                     f'{"   " if i < len(system.current.masses) - 1 else ""}'
             self.masses.setText(update_text)
 
+    def update_mass_edits(self):
+        second = True if len(system.current.masses) >= 2 else False
+        third  = True if len(system.current.masses) == 3 else False
+        self.second_widget.setVisible(second)
+        self.third_widget.setVisible(third)
+
     def update_info(self):
         self.update_masses_label()
+        self.update_mass_edits()
