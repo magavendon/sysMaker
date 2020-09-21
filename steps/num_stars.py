@@ -88,12 +88,12 @@ class Num_Stars(Window):
         open_cluster_explanation.setAlignment(Qt.AlignJustify)
 
         # Probability table
-        one_star        = QLabel('1')
-        two_stars       = QLabel('2')
-        three_stars     = QLabel('3')
-        self.prob_1     = QLabel('50%')
-        self.prob_2     = QLabel('45%')
-        self.prob_3     = QLabel('5%')
+        one_star    = QLabel('1')
+        two_stars   = QLabel('2')
+        three_stars = QLabel('3')
+        self.prob_1 = QLabel('50%')
+        self.prob_2 = QLabel('45%')
+        self.prob_3 = QLabel('5%')
         one_star.setAlignment(Qt.AlignCenter)
         two_stars.setAlignment(Qt.AlignCenter)
         three_stars.setAlignment(Qt.AlignCenter)
