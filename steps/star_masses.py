@@ -1,4 +1,5 @@
 from PySide2.QtCore import Qt
+from PySide2.QtWidgets import QCheckBox
 from PySide2.QtWidgets import QFrame
 from PySide2.QtWidgets import QGridLayout
 from PySide2.QtWidgets import QGroupBox
@@ -102,6 +103,24 @@ class Star_Masses(Window):
         randomization_layout = QHBoxLayout()
         randomization_layout.addWidget(randomization)
         randomization_layout.addStretch()
+
+        # Garden world checkboxes
+        self.garden_world        = QCheckBox('Garden world exists')
+        self.ignore_garden_world = QCheckBox('Ignore garden world')
+        self.assume_garden_world = QCheckBox('Assume garden world')
+        self.garden_world.setFont(self.sys_font)
+        self.ignore_garden_world.setFont(self.sys_font)
+        self.assume_garden_world.setFont(self.sys_font)
+        self.garden_world.setEnabled(False)
+
+        # Garden world layout
+        garden_world_layout       = QVBoxLayout()
+        garden_world_table_layout = QGridLayout()
+        garden_world_table_layout.addWidget(self.garden_world, 0, 0, 1, 2, Qt.AlignHCenter)
+        garden_world_table_layout.addWidget(self.ignore_garden_world, 1, 0)
+        garden_world_table_layout.addWidget(self.assume_garden_world, 1, 1)
+        garden_world_layout.addLayout(garden_world_table_layout)
+        garden_world_layout.addStretch()
 
         # Probability table
         # Probabilities; fs_roll means first_second_roll
@@ -311,9 +330,10 @@ class Star_Masses(Window):
         randomize_layout.addStretch()
 
         # Set randomization box layout
-        randomization_box_layout = QVBoxLayout()
-        randomization_box_layout.addLayout(probability_layout)
-        randomization_box_layout.addLayout(randomize_layout)
+        randomization_box_layout = QGridLayout()
+        randomization_box_layout.addLayout(garden_world_layout , 0, 0)
+        randomization_box_layout.addLayout(probability_layout  , 0, 1)
+        randomization_box_layout.addLayout(randomize_layout    , 1, 0, 1, 2)
         randomization.setLayout(randomization_box_layout)
 
         # Create layout
@@ -372,6 +392,23 @@ class Star_Masses(Window):
         if third:
             self.third_mass.setText(f'{system.current.masses[2]:.2f}')
 
+    def update_garden_world_checkboxes(self):
+        # Uncheck ignore and assume checkboxes.
+        self.ignore_garden_world.setChecked(False)
+        self.assume_garden_world.setChecked(False)
+
+        # Determine whether garden world is checked or not.
+        self.garden_world.setChecked(system.current.has_garden_world)
+
+        # Determine how helper checkboxes are enabled.
+        if self.garden_world.isChecked():
+            self.ignore_garden_world.setEnabled(True)
+            self.assume_garden_world.setEnabled(False)
+        else:
+            self.ignore_garden_world.setEnabled(False)
+            self.assume_garden_world.setEnabled(True)
+
     def update_info(self):
         self.update_masses_label()
         self.update_mass_edits()
+        self.update_garden_world_checkboxes()

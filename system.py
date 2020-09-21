@@ -1,7 +1,8 @@
 class System():
     def __init__(self):
-        self.num_of_stars = 1
-        self.masses       = [1.00]
+        self.num_of_stars     = 1
+        self.masses           = [1.00]
+        self.has_garden_world = False
 
     def update_stars(self, stars):
         # Set the new number of stars.
