@@ -17,7 +17,7 @@ class MainWindow(QWidget):
     QWidget.__init__(self)
 
     # Set default size
-    self.resize(800, 600)
+    self.resize(800, 800)
 
     # Add separator line
     h_sep = QFrame()
